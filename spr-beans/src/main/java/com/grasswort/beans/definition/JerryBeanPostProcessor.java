@@ -12,7 +12,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
  * @Description
  * @Date 2020/8/1
  */
-public class TestBeanPostProcessor implements BeanPostProcessor {
+public class JerryBeanPostProcessor implements BeanPostProcessor {
 
     /**
      * Apply this {@code BeanPostProcessor} to the given new bean instance <i>before</i> any bean

@@ -1,7 +1,5 @@
 package com.grasswort.beans.definition.model;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  * @author xuliangliang
  * @Description
@@ -9,6 +7,15 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @TestAnnotation("student")
 public class Student extends User implements IStudy {
+
+    public Student() {
+    }
+
+    public Student(String name, Integer age, IDCard idCard) {
+        super(name, age);
+        this.idCard = idCard;
+    }
+
     /**
      * 学号
      */

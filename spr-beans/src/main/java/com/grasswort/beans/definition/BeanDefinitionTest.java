@@ -15,13 +15,14 @@ import java.util.stream.Stream;
  * @Description
  * @Date 2020/8/1
  */
-public class GenericBeanDefinitionTest {
+public class BeanDefinitionTest {
 
     public static void main(String[] args) {
         //BeanDefinitionRegistry registry = new SimpleBeanDefinitionRegistry();
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
         registerGenericBeanDefinition(beanFactory);
         registerRootChildBeanDefinition(beanFactory);
+        registerGenericBeanDefinitionUseConstructor(beanFactory);
 
         System.out.println("已注册 BeanDefinition :");
         Stream.of(beanFactory.getBeanDefinitionNames())
@@ -32,6 +33,18 @@ public class GenericBeanDefinitionTest {
 
         Student tom = beanFactory.getBean("tom", Student.class);
         System.out.println(tom);
+
+        Student xuliang = beanFactory.getBean("xuliang", Student.class);
+        System.out.println(xuliang);
+    }
+
+    public static void registerGenericBeanDefinitionUseConstructor(BeanDefinitionRegistry registry) {
+        BeanDefinition xl = BeanDefinitionBuilder.genericBeanDefinition(Student.class)
+                .addConstructorArgValue("xuliang")
+                .addConstructorArgValue(25)
+                .addConstructorArgReference("idCard")
+                .getBeanDefinition();
+        registry.registerBeanDefinition("xuliang", xl);
     }
 
     public static void registerRootChildBeanDefinition(BeanDefinitionRegistry registry) {

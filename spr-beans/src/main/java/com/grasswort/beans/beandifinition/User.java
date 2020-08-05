@@ -1,9 +1,9 @@
-package com.grasswort.beans.definition.model;
+package com.grasswort.beans.beandifinition;
 
 /**
  * @author xuliangliang
  * @Description
- * @Date 2020/8/1
+ * @Date 2020/8/5
  */
 public class User {
 
@@ -15,9 +15,19 @@ public class User {
         this.age = age;
     }
 
+    private Long id;
+
     private String name;
 
     private Integer age;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -38,7 +48,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';
     }
