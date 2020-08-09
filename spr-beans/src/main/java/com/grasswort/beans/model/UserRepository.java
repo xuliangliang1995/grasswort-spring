@@ -1,5 +1,6 @@
-package com.grasswort.beans.beandifinition;
+package com.grasswort.beans.model;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.lang.Nullable;
 
 import java.util.ArrayList;
@@ -11,12 +12,17 @@ import java.util.Objects;
  * @Description
  * @Date 2020/8/5
  */
+@Qualifier
 public class UserRepository {
 
-    private final static List<User> userList = new ArrayList<>(5);
+    private final List<User> userList = new ArrayList<>(5);
 
     private IdGenerator idGenerator;
 
+    /**
+     * setter dependency injection
+     * @param idGenerator
+     */
     public void setIdGenerator(IdGenerator idGenerator) {
         this.idGenerator = idGenerator;
     }

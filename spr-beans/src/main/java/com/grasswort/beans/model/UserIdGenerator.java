@@ -1,4 +1,4 @@
-package com.grasswort.beans.beandifinition;
+package com.grasswort.beans.model;
 
 import java.util.concurrent.atomic.AtomicLong;
 

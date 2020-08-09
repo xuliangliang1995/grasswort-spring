@@ -1,7 +1,11 @@
-package com.grasswort.beans.beandifinition;
+package com.grasswort.beans.beandefinition;
 
-import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import com.grasswort.beans.model.*;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.FactoryBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 
@@ -12,7 +16,7 @@ import java.util.stream.Stream;
  * @Description
  * @Date 2020/8/5
  */
-public class IocContainerBootStrap {
+public class GenericBeanDefinitionTest {
 
     public static void main(String[] args) {
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
@@ -29,7 +33,17 @@ public class IocContainerBootStrap {
         beanFactory.registerBeanDefinition("userRepository", userRepositoryBd);
         beanFactory.registerBeanDefinition("userService", userServiceBd);
 
-        UserService userService = beanFactory.getBean("userService", UserService.class);
+        beanFactory.addBeanPostProcessor(new BeanPostProcessor() {
+            @Override
+            public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+                if (bean instanceof UserService) {
+                    return UserServiceProxy.getInstance((IUserService) bean);
+                }
+                return bean;
+            }
+        });
+
+        IUserService userService = beanFactory.getBean("userService", IUserService.class);
 
         Stream.of(new User("Jerry", 8), new User("Tom", 18))
                 .forEach(userService::addUser);

@@ -1,4 +1,4 @@
-package com.grasswort.beans;
+package com.grasswort.beans.demo.generic;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;

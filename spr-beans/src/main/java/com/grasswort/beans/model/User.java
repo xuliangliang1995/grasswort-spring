@@ -1,4 +1,4 @@
-package com.grasswort.beans.beandifinition;
+package com.grasswort.beans.model;
 
 /**
  * @author xuliangliang
