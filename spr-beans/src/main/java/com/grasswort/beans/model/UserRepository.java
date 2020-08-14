@@ -1,7 +1,7 @@
 package com.grasswort.beans.model;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.Objects;
  * @Description
  * @Date 2020/8/5
  */
-@Qualifier
+@Repository
 public class UserRepository {
 
     private final List<User> userList = new ArrayList<>(5);
