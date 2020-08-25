@@ -5,8 +5,6 @@ import com.grasswort.beans.model.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.stream.Stream;
@@ -14,31 +12,13 @@ import java.util.stream.Stream;
 /**
  * @author xuliangliang
  * @Description
- * @Date 2020/8/9
+ * @Date 2020/8/25
  */
-public class ResourceBeanDefinitionReaderTest {
+public class AnnotationBasedConfigurationTest {
 
-    private static Logger logger = LoggerFactory.getLogger(ResourceBeanDefinitionReaderTest.class);
+    private static Logger logger = LoggerFactory.getLogger(AnnotationBasedConfigurationTest.class);
 
     public static void main(String[] args) {
-        resolveXmlBasedConfigurationMetadata();
-        resolveAnnotationBasedConfigurationMetadata();
-    }
-
-    private static void resolveXmlBasedConfigurationMetadata() {
-        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
-        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
-
-        int loadCount = xmlBeanDefinitionReader.loadBeanDefinitions(
-                "com/grasswort/beans/beandefinition/configurationmeta/user-service.xml");
-
-        logger.info("已解析 BeanDefinition 数量 : {}", loadCount);
-
-        Stream.of(beanFactory.getBeanDefinitionNames())
-                .forEach(System.out::println);
-    }
-
-    private static void resolveAnnotationBasedConfigurationMetadata() {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(
                 "com/grasswort/beans/beandefinition/configurationmeta/user-service-annotation-based.xml"
         );
