@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder
+            location="classpath:com/grasswort/beans/beandefinition/configurationmeta/user-beans.properties"/>
 
     <bean id="tom" class="com.grasswort.beans.model.User">
-        <property name="id" value="1"/>
-        <property name="name" value="tom"/>
-        <property name="age" value="22"/>
+        <property name="id" value="${tom.id}"/>
+        <property name="name" value="${tom.name}"/>
+        <property name="age" value="${tom.age}"/>
     </bean>
 
     <bean id="jerry" class="com.grasswort.beans.model.User">
-        <property name="id" value="2"/>
-        <property name="name" value="jerry"/>
-        <property name="age" value="8"/>
+        <property name="id" value="${jerry.id}"/>
+        <property name="name" value="${jerry.name}"/>
+        <property name="age" value="${jerry.age}"/>
     </bean>
 
 </beans>

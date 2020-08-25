@@ -24,6 +24,9 @@ public class AnnotationIocContainerTest {
         Stream.of(context.getBeanDefinitionNames())
                 .forEach(System.out::println);
 
+        BeanDefinition userConfigurationBd = context.getBeanDefinition("userConfiguration");
+        System.out.println(userConfigurationBd.getAttribute("org.springframework.context.annotation.ConfigurationClassPostProcessor.configurationClass"));
+
         BeanDefinition beanDefinition = context.getBeanDefinition("tom");
         System.out.println(beanDefinition);
     }

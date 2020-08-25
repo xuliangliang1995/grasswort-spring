@@ -1,5 +1,7 @@
 package com.grasswort.beans.model;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 /**
@@ -7,14 +9,11 @@ import java.util.List;
  * @Description
  * @Date 2020/8/5
  */
+@Service
 public class UserService implements IUserService {
 
     private final UserRepository userRepository;
 
-    /**
-     * constructor dependency injection
-     * @param userRepository
-     */
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

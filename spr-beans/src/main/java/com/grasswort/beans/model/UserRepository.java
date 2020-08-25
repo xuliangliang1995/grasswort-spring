@@ -1,5 +1,6 @@
 package com.grasswort.beans.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Repository;
 
@@ -23,6 +24,7 @@ public class UserRepository {
      * setter dependency injection
      * @param idGenerator
      */
+    @Autowired
     public void setIdGenerator(IdGenerator idGenerator) {
         this.idGenerator = idGenerator;
     }

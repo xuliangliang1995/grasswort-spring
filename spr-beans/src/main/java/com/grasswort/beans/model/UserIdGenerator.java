@@ -1,5 +1,7 @@
 package com.grasswort.beans.model;
 
+import org.springframework.stereotype.Component;
+
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -7,6 +9,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @Description
  * @Date 2020/8/5
  */
+@Component
 public class UserIdGenerator implements IdGenerator {
 
     private final AtomicLong atomicLong = new AtomicLong();
