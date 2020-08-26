@@ -1,7 +1,6 @@
-package com.grasswort.beans.beandefinition.reader;
+package com.grasswort.beans.beandefinition.load;
 
 import com.grasswort.beans.beandefinition.configurationmeta.UserServiceConfiguration;
-import com.grasswort.beans.beandefinition.configurationmeta.UsersConfiguration;
 import com.grasswort.beans.model.UserService;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

@@ -1,9 +1,7 @@
-package com.grasswort.beans.beandefinition;
+package com.grasswort.beans.beandefinition.load;
 
 import com.grasswort.beans.model.*;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.FactoryBean;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
@@ -16,7 +14,7 @@ import java.util.stream.Stream;
  * @Description
  * @Date 2020/8/5
  */
-public class GenericBeanDefinitionTest {
+public class JavaCodeBeanDefinitionTest {
 
     public static void main(String[] args) {
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();

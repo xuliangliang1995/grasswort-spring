@@ -1,13 +1,9 @@
-package com.grasswort.beans.beandefinition.reader;
+package com.grasswort.beans.beandefinition.load;
 
-import com.grasswort.beans.model.User;
-import com.grasswort.beans.model.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.stream.Stream;
 
@@ -31,10 +27,5 @@ public class XmlBeanDefinitionConfigurationTest {
 
         Stream.of(beanFactory.getBeanDefinitionNames())
                 .forEach(System.out::println);
-    }
-
-
-    private static void resolveAnnotationBasedConfigurationMetadata() {
-
     }
 }

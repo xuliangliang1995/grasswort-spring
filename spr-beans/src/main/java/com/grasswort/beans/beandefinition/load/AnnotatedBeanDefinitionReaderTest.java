@@ -1,4 +1,4 @@
-package com.grasswort.beans.beandefinition.reader;
+package com.grasswort.beans.beandefinition.load;
 
 import com.grasswort.beans.model.UserRepository;
 import org.slf4j.Logger;
