@@ -1,4 +1,4 @@
-package com.grasswort.beans.databinder;
+package com.grasswort.beans.typeconverter;
 
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 
