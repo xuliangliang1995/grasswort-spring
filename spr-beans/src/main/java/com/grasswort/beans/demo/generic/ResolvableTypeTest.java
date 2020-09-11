@@ -35,9 +35,9 @@ public class ResolvableTypeTest {
                 .forEach(System.out::println);
     }
 
-    class StringList extends ArrayList<String> {}
-    class CustomMap extends HashMap<String, String>{}
-    class CustomFunction implements Function<CustomMap, StringList> {
+    static class StringList extends ArrayList<String> {}
+    static class CustomMap extends HashMap<String, String>{}
+    static class CustomFunction implements Function<CustomMap, StringList> {
         @Override
         public StringList apply(CustomMap customMap) {
             return null;
