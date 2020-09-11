@@ -15,6 +15,8 @@ public class DataBinderTest {
         MutablePropertyValues propertyValues = new MutablePropertyValues();
         propertyValues.addPropertyValue("id", 10);
         propertyValues.addPropertyValue("name", " jerry");
+        propertyValues.addPropertyValue("age", 18);
+
         dataBinder.bind(propertyValues);
         System.out.println(user);
 

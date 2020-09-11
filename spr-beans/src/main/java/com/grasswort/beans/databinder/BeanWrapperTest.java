@@ -2,10 +2,13 @@ package com.grasswort.beans.databinder;
 
 import com.grasswort.beans.model.User;
 import com.grasswort.beans.typeconverter.PropertiesToUserConverter;
+import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.convert.support.DefaultConversionService;
 
+import java.beans.*;
 import java.util.Properties;
 
 /**
@@ -15,9 +18,9 @@ import java.util.Properties;
  */
 public class BeanWrapperTest {
 
-    public static void main(String[] args) {
-       testBeanWrapper();
-       testBeanWrapperWithConversionService();
+    public static void main(String[] args) throws IntrospectionException {
+        testBeanWrapper();
+        testBeanWrapperWithConversionService();
     }
 
     private static void testBeanWrapperWithConversionService() {
