@@ -19,8 +19,29 @@ import java.util.Properties;
 public class BeanWrapperTest {
 
     public static void main(String[] args) throws IntrospectionException {
+        testBeanWrapperIntrospector();
+        testPropertyAccessor();
         testBeanWrapper();
         testBeanWrapperWithConversionService();
+    }
+
+    private static void testBeanWrapperIntrospector() {
+        BeanWrapper beanWrapper = new BeanWrapperImpl(User.class);
+        PropertyDescriptor[] propertyDescriptors = beanWrapper.getPropertyDescriptors();
+        for (PropertyDescriptor propertyDescriptor : propertyDescriptors) {
+            System.out.printf("%s : %s, %s\n", propertyDescriptor.getName(),
+                    propertyDescriptor.getReadMethod(),
+                    propertyDescriptor.getWriteMethod());
+        }
+    }
+
+    private static void testPropertyAccessor() {
+        BeanWrapper beanWrapper = new BeanWrapperImpl(User.class);
+        beanWrapper.setPropertyValue("id", "1");
+        beanWrapper.setPropertyValue("name", "jerry");
+        System.out.println("id : " + beanWrapper.getPropertyValue("id"));
+        System.out.println("name : " + beanWrapper.getPropertyValue("name"));
+        System.out.println(beanWrapper.getWrappedInstance());
     }
 
     private static void testBeanWrapperWithConversionService() {
