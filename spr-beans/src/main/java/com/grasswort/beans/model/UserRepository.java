@@ -24,7 +24,7 @@ public class UserRepository {
      * setter dependency injection
      * @param idGenerator
      */
-    @Autowired
+    @Autowired(required = false)
     public void setIdGenerator(IdGenerator idGenerator) {
         this.idGenerator = idGenerator;
     }
