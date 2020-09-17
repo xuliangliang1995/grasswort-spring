@@ -43,9 +43,6 @@ public class AnnotationBasedConfigurationTest {
         Stream.of(beanFactory.getBeanDefinitionNames())
                 .forEach(System.out::println);
 
-        User tom = (User) beanFactory.getBean("tom");
-        System.out.println(tom);
-
         UserService userService = beanFactory.getBean(UserService.class);
         beanFactory.getBeansOfType(User.class).values().forEach(userService::addUser);
         userService.listUser().forEach(System.out::println);

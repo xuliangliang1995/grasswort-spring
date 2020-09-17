@@ -1,10 +1,10 @@
 package com.grasswort.beans.annotation;
 
 import com.grasswort.beans.model.User;
-import com.grasswort.beans.model.UserRepository;
-import com.grasswort.beans.model.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.annotation.MergedAnnotation;
 import org.springframework.core.annotation.MergedAnnotations;
@@ -33,6 +33,8 @@ public class MergedAnnotationTest {
         };
         ReflectionUtils.doWithLocalFields(TestDTO.class, consumer::accept);
         ReflectionUtils.doWithLocalMethods(TestDTO.class, consumer::accept);
+
+
     }
 
     static class TestDTO {

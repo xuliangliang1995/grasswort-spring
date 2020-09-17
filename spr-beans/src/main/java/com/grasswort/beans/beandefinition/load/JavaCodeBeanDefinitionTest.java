@@ -2,6 +2,7 @@ package com.grasswort.beans.beandefinition.load;
 
 import com.grasswort.beans.model.*;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
@@ -24,6 +25,7 @@ public class JavaCodeBeanDefinitionTest {
                 .getBeanDefinition();
 
         BeanDefinition userServiceBd = BeanDefinitionBuilder.genericBeanDefinition(UserService.class)
+                //.setAutowireMode(AutowireCapableBeanFactory.AUTOWIRE_AUTODETECT)
                 .addConstructorArgReference("userRepository")
                 .getBeanDefinition();
 
