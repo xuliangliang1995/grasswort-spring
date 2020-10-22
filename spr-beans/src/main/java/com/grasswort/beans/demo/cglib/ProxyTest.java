@@ -2,12 +2,16 @@ package com.grasswort.beans.demo.cglib;
 
 import com.grasswort.beans.model.User;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.Signature;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.aop.aspectj.annotation.AspectJProxyFactory;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
+import org.springframework.util.StopWatch;
 
 /**
  * @author xuliang
@@ -50,9 +54,17 @@ public class ProxyTest {
         @Pointcut("execution(public String com.grasswort.beans.model.User.getName())")
         public void preGetName() {}
 
-        @Before("preGetName()")
-        public void preGetNameAdvice(JoinPoint jp) {
-            System.out.println("pre getName ...");
+        @Around("preGetName()")
+        public Object preGetNameAdvice(ProceedingJoinPoint jp) throws Throwable {
+            StopWatch stopWatch = new StopWatch(jp.getTarget().getClass().getSimpleName());
+            try {
+                Signature signature = jp.getSignature();
+                stopWatch.start(signature.getDeclaringTypeName() + "." + signature.getName());
+                return jp.proceed();
+            } finally {
+                stopWatch.stop();
+                System.out.println(stopWatch.prettyPrint());
+            }
         }
 
     }
